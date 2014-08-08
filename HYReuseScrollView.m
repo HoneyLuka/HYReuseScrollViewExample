@@ -20,6 +20,12 @@
 
 @implementation HYReuseView
 
+- (void)dealloc
+{
+    [self removeObserver:self forKeyPath:@"contentOffset" context:nil];
+    [self removeObserver:self forKeyPath:@"frame" context:nil];
+}
+
 - (id)initWithReuseIdentifier:(NSString *)reuseIdentifier
 {
     self = [super init];
